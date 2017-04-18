@@ -1,5 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/0.13/config/configuration-file.html
+// Karmar does not support referencing modules outside of the project directory
+// https://github.com/angular/angular-cli/issues/4647
+// Workaround: Using a symbolic link to the shared directory
 const path = require('path');
 
 module.exports = function (config) {
