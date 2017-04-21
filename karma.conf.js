@@ -1,69 +1,75 @@
-// Karma configuration file, see link for more information
-// https://karma-runner.github.io/0.13/config/configuration-file.html
-// Karmar does not support referencing modules outside of the project directory
-// https://github.com/angular/angular-cli/issues/4647
-// Workaround: Using a symbolic link to the shared directory
-const path = require('path');
 
-module.exports = function (config) {
+module.exports = function(config) {
+  var appBase    = 'app/'; // transpiled app JS and map files
+  var appSrcBase = 'app/'; // app source TS files
+
   config.set({
     basePath: '',
-    frameworks: ['jasmine', '@angular/cli'],
+
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
+
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma')
+      require('karma-coverage'),
+      require('karma-jasmine-html-reporter')
     ],
-    client:{
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
+
+    // list of files / patterns to load in the browser
     files: [
-      { pattern: './src/test.ts', watched: false }
+      'node_modules/systemjs/dist/system.src.js',
+
+      // Polyfills
+      'node_modules/core-js/client/shim.js',
+      'node_modules/reflect-metadata/Reflect.js',
+      
+      // zone.js
+      'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/long-stack-trace-zone.js',
+      'node_modules/zone.js/dist/proxy.js',
+      'node_modules/zone.js/dist/sync-test.js',
+      'node_modules/zone.js/dist/jasmine-patch.js',
+      'node_modules/zone.js/dist/async-test.js',
+      'node_modules/zone.js/dist/fake-async-test.js',
+
+      { pattern: 'node_modules/@angular/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false },
+
+      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
+      { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+
+      { pattern: 'systemjs.config.js', included: false, watched: false },'karma-test-shim.js',
+
+      { pattern: 'app/**/*.js', included: false, watched: true },
+      { pattern: 'app/**/*.ts', included: false, watched: true },
+      { pattern: 'app/**/*.js.map', included: false, watched: true }
     ],
+    // list of files to exclude
+    exclude: [
+      './**/polyfills.js'
+      ,'./**/vendor.js'
+    ],
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './src/test.ts': ['@angular/cli']
+      "app/**/*.js":["coverage"]
     },
-    mime: {
-      'text/x-typescript': ['ts','tsx']
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress', 'coverage'],
+    coverageReporter:{
+      type:'html',
+      dir:'test-coverage/'
     },
-    coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
-      fixWebpackSourcePaths: true,
-      dir: path.join(__dirname, 'coverage'),
-      // stop istanbul outputting messages like `File [${filename}] ignored, nothing could be mapped`
-      skipFilesWithNoCoverage: true,
 
-       // Most reporters accept additional config options. You can pass these through the `report-config` option
-      'report-config': {
-
-        // all options available at: https://github.com/istanbuljs/istanbul-reports/blob/590e6b0089f67b723a1fdf57bc7ccc080ff189d7/lib/html/index.js#L135-L137
-        html: {
-          // outputs the report in ./coverage/html
-          subdir: 'html'
-        }
-
-      },
-
-       // enforce percentage thresholds
-       // anything under these percentages will cause karma to fail with an exit code of 1 if not running in watch mode
-      thresholds: {
-        statements: 100,
-        lines: 100,
-        branches: 100,
-        functions: 100
-      }    },
-    angularCli: {
-      environment: 'dev',
-      codeCoverage: true
-    },
-    reporters: ['progress', 'coverage-istanbul'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: false,
+    autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: true
+    singleRun: false
   });
 };
