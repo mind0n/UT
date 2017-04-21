@@ -3,7 +3,7 @@
 Error.stackTraceLimit = 0;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 
-var builtPaths = (__karma__.config.builtPaths || ['app/'])
+var builtPaths = (__karma__.config.builtPaths || ['build/app/'])
                  .map(function(p) { return '/base/'+p;});
 
 __karma__.loaded = function () { };
