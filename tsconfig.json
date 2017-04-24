@@ -11,5 +11,7 @@
     "suppressImplicitAnyIndexErrors": true
     ,"rootDir": "src"
     ,"outDir": "build"
-  }
+  },"files":[
+    "node_modules/@types/jasmine/index.d.ts"
+  ]
 }
