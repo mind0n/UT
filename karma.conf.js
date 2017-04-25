@@ -1,7 +1,5 @@
 
 module.exports = function(config) {
-  var appBase    = 'build/app/'; // transpiled app JS and map files
-  var appSrcBase = 'src/app/'; // app source TS files
 
   config.set({
     basePath: '',
