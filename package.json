@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
-    "test-once": "tsc && karma start karma.conf.js --single-run",
-    "tsc": "tsc"
+    "start": "tsc --p ./tsconfig.test.json && concurrently \"tsc -w\" \"lite-server\" ",
+    "test": "tsc --p ./tsconfig.test.json && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
+    "test-once": "tsc --p ./tsconfig.test.json && karma start karma.conf.js --single-run",
+    "tsc": "tsc --p ./tsconfig.test.json"
   },
   "devDependencies": {
     "@types/jasmine": "^2.5.38",

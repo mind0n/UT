@@ -9,9 +9,7 @@
     "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
-    ,"rootDir": "src"
-    ,"outDir": "build"
-  },"files":[
-    "node_modules/@types/jasmine/index.d.ts"
-  ]
+    ,"rootDir": "./src"
+    ,"outDir": "./build"
+  }
 }

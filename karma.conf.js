@@ -50,6 +50,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       "build/app/**/*.js":["coverage"]
+      ,"build/test/**/*.js":["coverage"]
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
