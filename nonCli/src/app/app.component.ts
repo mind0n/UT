@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
-  message = 'Hello World!';
+  message = 'UT Coverage Demo';
   
 }
