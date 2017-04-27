@@ -13,10 +13,10 @@ describe('component: AppComponent (external)', () => {
     fixture.detectChanges();
   });
 
-  it('should display Hello World message', () => {
+  it('should display message', () => {
     const debugEl = fixture.debugElement;
     const h1 = debugEl.nativeElement.querySelector('h1');
-    expect(h1.textContent).toEqual('Hello World!');
+    expect(h1.textContent).toEqual('UT Coverage Demo');
 
   });
 

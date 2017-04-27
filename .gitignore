@@ -5,4 +5,4 @@ test-coverage
 ~$w*
 *.tmp
 /npm-debug.log.1091047165
-/build/tests
+build

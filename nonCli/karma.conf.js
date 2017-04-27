@@ -42,11 +42,7 @@ module.exports = function(config) {
       //{ pattern: 'src/app/**/*.ts', included: false, watched: true },
       //{ pattern: 'build/app/**/*.js.map', included: false, watched: true }
     ],
-    // list of files to exclude
-    exclude: [
-      './build/**/polyfills.js'
-      ,'./build/**/vendor.js'
-    ],
+
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
@@ -65,7 +61,7 @@ module.exports = function(config) {
     // the configure thresholds
     thresholdReporter: {
       statements: 85,
-      branches: 85,
+      branches: 30,
       functions: 85,
       lines: 85
     },
