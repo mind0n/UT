@@ -2,7 +2,7 @@ node_modules
 app/**/*.js
 *.js.map
 test-coverage
-doc/~$w to measure code coverage for Angular JS unit tests.docx
+~$w*
 *.tmp
 /npm-debug.log.1091047165
 /build/tests
