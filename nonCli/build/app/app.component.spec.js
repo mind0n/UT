@@ -16,5 +16,8 @@ describe('component: AppComponent', function () {
         var h1 = debugEl.nativeElement.querySelector('h1');
         expect(h1.textContent).toEqual('Hello World!');
     });
+    it('True should be true', function () {
+        expect(true).toEqual(true);
+    });
 });
 //# sourceMappingURL=app.component.spec.js.map

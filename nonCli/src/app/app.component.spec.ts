@@ -17,5 +17,11 @@ describe('component: AppComponent', () => {
     const debugEl = fixture.debugElement;
     const h1 = debugEl.nativeElement.querySelector('h1');
     expect(h1.textContent).toEqual('Hello World!');
+
+  });
+
+  it('True should be true', () => {
+    expect(true).toEqual(true);
+    
   });
 });
