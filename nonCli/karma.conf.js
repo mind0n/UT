@@ -11,7 +11,8 @@ module.exports = function(config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-coverage'),
-      require('karma-jasmine-html-reporter')
+      require('karma-jasmine-html-reporter'),
+      require('karma-threshold-reporter')
     ],
 
     // list of files / patterns to load in the browser
@@ -55,10 +56,18 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'threshold'],
     coverageReporter:{
       type:'html',
       dir:'test-coverage/'
+    },
+
+    // the configure thresholds
+    thresholdReporter: {
+      statements: 85,
+      branches: 85,
+      functions: 85,
+      lines: 85
     },
 
     port: 9876,
