@@ -1,5 +1,5 @@
 
-import { Counter } from './counter';
+import { Counter } from '../../app/counter/counter';
 
 describe('Counter', () => {
   let counter: Counter;
