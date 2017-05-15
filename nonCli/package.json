@@ -21,6 +21,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-threshold-reporter": "^0.1.15",
+    "karma-typescript": "^3.0.1",
     "lite-server": "^2.2.2",
     "typescript": "^2.1.4"
   },
@@ -31,7 +32,6 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "core-js": "^2.4.1",
-    "karma-typescript": "^3.0.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.1",
     "systemjs": "^0.19.41",
