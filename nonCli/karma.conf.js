@@ -11,9 +11,22 @@ module.exports = function(config) {
         preprocessors: {
             "src/**/*.ts": ["karma-typescript"]
         },
-        karmaTypescriptConfig: {
-            tsconfig: "./tsconfig.json", // this will get rid of all compiler error messages
-        },        
+    karmaTypescriptConfig: {
+        tsconfig: "./tsconfig.json", // this will get rid of all compiler error messages
+        coverageOptions: {
+            threshold: {
+                global: {
+                    statements: 100,
+                    branches: 100,
+                    functions: 100,
+                    lines: 100,
+                    excludes: [
+                        "src/foo/**/*.js"
+                    ]
+                }
+            },
+        }
+    },        
         reporters: ["progress", "karma-typescript"],
         browsers: ["Chrome"]
     });
