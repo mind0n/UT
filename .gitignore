@@ -6,3 +6,4 @@ test-coverage
 *.tmp
 /npm-debug.log.1091047165
 build
+coverage

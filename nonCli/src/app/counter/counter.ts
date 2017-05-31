@@ -7,11 +7,7 @@ export class Counter {
   private _value = new BehaviorSubject<number>(this._count);
 
   increment() {
-    if (this){
       this._value.next(++this._count);
-    }else{
-      this._value.next(++this._count);
-    }
   }
 
   decrement() {
